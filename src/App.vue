@@ -13,7 +13,7 @@
 
       <div class="card weather-load" v-if="loading">...</div>
 
-      <div class="weather-info" v-show="!error && location && temperature !== 0 && description">
+      <div class="weather-info" v-show="!error && location && description">
 
         <div class="card" v-if="error">...</div>
 
@@ -67,7 +67,7 @@ export default {
     weatherSearch() {
       this.loading = true;
       this.error = false;
-      fetch(`api.weatherapi.com/v1/current.json?key=80668d6f969547de8b491249241511&q=${this.searchQuery}`)
+      fetch(`https://api.weatherapi.com/v1/current.json?key=80668d6f969547de8b491249241511&q=${this.searchQuery}`)
         .then(response => response.json())
         .then(data => {
           this.loading = false;
